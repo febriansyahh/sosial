@@ -191,17 +191,15 @@ if (isset($_SESSION['ses_username']) == "") {
           if ($data_status=="0"){
             ?>
           <li>
-            <a href="?page=kader_tampil">
+            <a href="?page=progAcc">
               <i class="fa fa-building"></i> <span>Kelola Data Program</span>
             </a>
           </li>
-
           <li>
-            <a href="?page=layanan_tampil">
-              <i class="fa fa-steam"></i> <span>Data Publikasi Berita</span>
+            <a href="?page=lembaga">
+              <i class="fa fa-steam"></i> <span>Data Lembaga Terdaftar</span>
             </a>
-          </li>
-          
+          </li>          
           <li class="treeview">
             <a href="#">
               <i class="fa fa-files-o"></i>
@@ -212,8 +210,7 @@ if (isset($_SESSION['ses_username']) == "") {
             </a>
             <ul class="treeview-menu">
               <li><a href="?page=desa"><i class="fa fa-steam"></i> Master Desa</a></li>
-              <li><a href="?page=rw"><i class="fa fa-steam"></i> Master RW</a></li>
-              <li><a href="?page=try"><i class="fa fa-steam"></i> Try</a></li>
+              
             </ul>
           </li>
 
@@ -264,7 +261,7 @@ if (isset($_SESSION['ses_username']) == "") {
           }elseif ($data_status=="1"){
             ?>
             <li>
-            <a href="?page=kader_tampil">
+            <a href="?page=prog">
               <i class="fa fa-building"></i> <span>Kelola Data Program</span>
             </a>
           </li>
@@ -353,9 +350,37 @@ if (isset($_SESSION['ses_username']) == "") {
               include "beranda.php";
               break;
             
+            case 'prog' :
+              include "program/tampil.php";
+              break;
+            case 'progAcc':
+              include "program/accept.php";
+              break;
+            case 'progUbah' :
+              include "program/ubah.php";
+              break;
+            case 'progAksi' :
+              include "program/aksi.php";
+              break;
+            case 'progKonfirm' :
+              include "program/konfirm.php";
+              break;
+            
+            case 'lembaga':
+              include "lembaga/tampil.php";
+              break;
+            
+            case 'lembUbah':
+              include "lembaga/ubah.php";
+              break;
+
+            case 'lembAksi' :
+              include "lembaga/aksi.php";
+              break;
+            
           }
         } else {
-          include "pages/beranda.php";
+          include "beranda.php";
         }
         ?>
       </div>

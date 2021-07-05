@@ -248,6 +248,28 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
+<?php
+ $con = mysqli_connect("localhost","root","","bkk"); 
+//  include "koneksi.php";
+ if (isset ($_POST['btnDaftarPer'])){
+		$sql_simpan = "INSERT INTO user (username,nama,password,email,alamat,level,status) VALUES (
+                    '".$_POST['txtusername']."',
+                    '".$_POST['txtnama']."',
+					'".$_POST['txtpassword']."',
+                    '".$_POST['txtemail']."',
+                    '".$_POST['txtalamat']."',
+                    '".'Perusahaan / CV'."',
+                    '".'Nonaktif'."');";
+		$query_simpan = mysqli_query($con,$sql_simpan);
 
+        if ($query_simpan) {
+            echo "<script>alert('Tahap Selanjutnya')</script>";
+            echo "<meta http-equiv='refresh' content='0; url=login.php'>";
+        }else{
+            echo "<script>alert('Proses Gagal')</script>";
+        }
+        //selesai proses simpan
+    }
+?>
 </body>
 </html>
