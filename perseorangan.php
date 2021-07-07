@@ -1,5 +1,17 @@
 <?php 
+    
     include_once("koneksi.php");
+	$carikode = mysqli_query($con,"SELECT MAX(id) FROM perseorangan");
+	$datakode = mysqli_fetch_array($carikode);
+	if ($datakode) {
+	$nilaikode = substr($datakode[0], 3);
+	$kode = (int) $nilaikode;
+	$kode = $kode + 1;
+	$hasilkode = "DPM".str_pad($kode, 3, "0", STR_PAD_LEFT);
+	}else{
+		$hasilkode = "DPM001";
+	}
+    // KODE OTOMATIS
     ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -18,14 +30,17 @@
 
 </head>
 <body OnLoad="document.login.username.focus();" colorbackground="blue">
+<script>
+    alert("Harap Ingat Kode Anda Untuk Melanjutkan Proses Selanjutnya !");
+</script>
 <body>
-
     <div class="container">
         <div class="row text-center">
             <div class="col-md-12">
             <br><br>
-                    <h3><b>REGISTRASI DONATUR <BR>
-                PORTAL DONASI-KU</b></h3>
+                    <h4><b>REGISTRASI <BR>
+                    OPEN DONASI PERSEORANGAN <br>
+                PORTAL DONASI-KU</b></h4>
                     <br>
             </div>
         </div>
@@ -39,10 +54,17 @@
 <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
     <div class="box-body">
 
+    <div class="form-group">
+            <label class="col-sm-2 control-label">Kode Anda </label>
+            <div class="col-sm-8">
+            <input type="text" class="form-control" name="txtKd" value="<?php echo $hasilkode; ?>" readonly/>
+            </div>
+        </div>
+
        <div class="form-group">
             <label class="col-sm-2 control-label">Nama </label>
             <div class="col-sm-8">
-            <input type="text" class="form-control" placeholder="Nama Donatur" name="txtNm" required autofocus/>
+            <input type="text" class="form-control" placeholder="Nama" name="txtNm" required autofocus/>
             </div>
         </div>
 
@@ -58,37 +80,37 @@
         </div>
 
         <div class="form-group">
-        <label class="col-sm-2 control-label">No Handphone </label>
-            <div class="col-sm-8">
-            <input type="text" class="form-control" placeholder="Masukkan No HP" name="txtNohp" required="">
-            </div>
-        </div>
-
-        <div class="form-group">
         <label class="col-sm-2 control-label">Alamat </label>
             <div class="col-sm-8">
             <input type="text" class="form-control" placeholder="Masukkan Alamat" name="txtAlamat" required="">
             </div>
         </div>
 
-        <!-- <div class="form-group">
-        <label class="col-sm-2 control-label">Berkas </label>
-            <div class="col-sm-8">
-            <input type="file" class="form-control" name="txtBerkas">
-            </div>
-        </div> -->
-
         <div class="form-group">
-        <label class="col-sm-2 control-label">Username </label>
-            <div class="col-sm-8">
-            <input type="text" class="form-control" placeholder="Masukkan Username Pengguna" name="txtUsername" required="">
+        <label class="col-sm-2 control-label"> Jenis </label>
+        <div class="col-sm-8">
+            <select name="txtJenis" class="form-control" required>
+            <option value=""> - Jenis -</option>
+            <?php
+                $p = mysqli_query($con, "select id, nama from mst_jenis WHERE jenis='0'") or die(mysqli_error($con));
+                while ($datap = mysqli_fetch_array($p)) {
+                    echo '<option value="' . $datap['id'] . '">' . $datap['nama'] . '</option>';
+                } ?>
+            </select>
             </div>
         </div>
 
         <div class="form-group">
-        <label class="col-sm-2 control-label">Password </label>
+        <label class="col-sm-2 control-label">Berkas </label>
             <div class="col-sm-8">
-            <input type="password" class="form-control" placeholder="Masukkan Password Pengguna" name="txtPassword" required="">
+            <input type="file" class="form-control" placeholder="Pilih File PDF" name="txtBerkas" required="">
+            </div>
+        </div>
+
+        <div class="form-group">
+        <label class="col-sm-2 control-label">No Handphone </label>
+            <div class="col-sm-8">
+            <input type="text" class="form-control" placeholder="Masukkan No Handphone" name="txtNohp" required="">
             </div>
         </div>
         <center>
@@ -120,20 +142,20 @@
 </html>
 
 <?php
- include_once("koneksi.php");
-//  $konek = mysqli_connect("localhost","root","","sosial"); 
+//  include("koneksi.php");
+ $konek = mysqli_connect("localhost","root","","sosial"); 
  if (isset ($_POST['btnDaftarPer'])){
         $date = date('Y-m-d');
-		$sql_simpan = "INSERT INTO donatur (nama,jekel,alamat,no_hp,username,password,status,tgl_daftar) VALUES (
+		$sql_simpan = "INSERT INTO perseorangan (kdPerseorangan, nama, jekel, alamat, idJenis, berkas, no_hp, tgl_daftar) VALUES (
+                    '".$_POST['txtKd']."',
                     '".$_POST['txtNm']."',
-                    '".$_POST['txtJekel']."',
-					'".$_POST['txtAlamat']."',
+					'".$_POST['txtJekel']."',
+                    '".$_POST['txtAlamat']."',
+                    '".$_POST['txtJenis']."',
+                    'NULL',
                     '".$_POST['txtNohp']."',
-                    '".$_POST['txtUsername']."',
-                    '".$_POST['txtPassword']."',
-                    'Nonaktif',
                     '$date')";
-		$query_simpan = mysqli_query($con,$sql_simpan);
+		$query_simpan = mysqli_query($konek,$sql_simpan);
 
         if ($query_simpan) {
             echo "<script>alert('Tahap Selanjutnya')</script>";

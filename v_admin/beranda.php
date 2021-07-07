@@ -25,7 +25,7 @@
           <div class="small-box bg-aqua">
             <div class="inner">
               <h3><?php // menghitung
-                    $sql_hitung = "SELECT COUNT(id_loker) from tb_loker where status ='Tampil'";
+                    $sql_hitung = "SELECT COUNT(id) from lembaga ";
                     $q_hit= mysqli_query($con, $sql_hitung);
                     while($row = mysqli_fetch_array($q_hit)) {
                         echo  $row[0]."";
@@ -37,7 +37,7 @@
             <div class="icon">
               <i class="ion ion-person"></i>
             </div>
-            <a href="?halaman=loker_tampil" class="small-box-footer">Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="?page=lembaga" class="small-box-footer">Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -46,7 +46,7 @@
           <div class="small-box bg-green">
             <div class="inner">
               <h3><?php // menghitung
-                    $sql_hitung = "SELECT COUNT(username) from user where level ='Perusahaan / CV'";
+                    $sql_hitung = "SELECT COUNT(id) from program where status ='P'";
                     $q_hit= mysqli_query($con, $sql_hitung);
                     while($row = mysqli_fetch_array($q_hit)) {
                         echo  $row[0]."";
@@ -59,7 +59,7 @@
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="?halaman=super_tampil" class="small-box-footer">Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="?page=prog" class="small-box-footer">Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->

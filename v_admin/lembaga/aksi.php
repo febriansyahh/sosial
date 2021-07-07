@@ -3,13 +3,14 @@
 
  	if (isset($_POST['btnSimpan'])) {
          $date = date('Y-m-d');
-		$sql_insert = "INSERT INTO lembaga (kdLembaga, nmLembaga, jenis, alamat, nmPimpinan, berkas, no_hp, tgl) VALUES (
+		$sql_insert = "INSERT INTO lembaga (kdLembaga, nmLembaga, idJenis, alamat, nmPimpinan, berkas, no_hp, tgl) VALUES (
 					'".$_POST['txtKdLembaga']."',
 					'".$_POST['txtNmLembaga']."',
 					'".$_POST['txtJenis']."',
 					'".$_POST['txtAlamat']."',
                     '".$_POST['txtNmPimpinan']."',
-                    '".$_POST['txtBerkas']."',
+                    
+                    'NULL',
                     '".$_POST['txtNoHp']."',
                     '$date')";
 		$query_insert = mysqli_query($con,$sql_insert) or die (mysqli_connect_error());

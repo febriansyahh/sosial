@@ -6,6 +6,7 @@ if (isset($_SESSION['ses_username']) == "") {
 } else {
   $data_username = $_SESSION["ses_username"];
   $data_nama = $_SESSION["ses_nama"];
+  $data_id = $_SESSION["ses_id"];
   $data_status = $_SESSION["ses_level"];
   $data_pengguna = $_SESSION["ses_idYayasan"];
 }
@@ -103,8 +104,8 @@ if (isset($_SESSION['ses_username']) == "") {
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <i class="fa fa-bell-o"></i>
                 <span class="label label-warning"><?php
-                                                  if ($data_status == "Operator") {
-                                                    $sql_hitung = "SELECT COUNT(id_loker) from tb_loker where status ='Tangguhkan'";
+                                                  if ($data_status == "0") {
+                                                    $sql_hitung = "SELECT COUNT(id) from lembaga";
                                                     $q_hit = mysqli_query($con, $sql_hitung);
                                                     while ($row = mysqli_fetch_array($q_hit)) {
                                                       echo  $row[0] . "";
@@ -143,7 +144,8 @@ if (isset($_SESSION['ses_username']) == "") {
               <!-- User image -->
               <li>
                 <div class="text-center">
-                  <a href="#"> <?php echo $data_nama ?> - <?php echo $data_status ?></a>
+                  <a href="#"> <?php echo $data_nama ?> - <?php echo $data_id ?>
+                  - <?php echo $data_pengguna ?> - <?php echo $data_status ?></a>
                 </div>
 
               </li>
@@ -187,11 +189,23 @@ if (isset($_SESSION['ses_username']) == "") {
               <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             </a>
           </li>
+
+
           <?php
           if ($data_status=="0"){
             ?>
           <li>
+            <a href="?page=jenis">
+              <i class="fa fa-steam"></i> <span>Master Jenis</span>
+            </a>
+          </li>   
+          <li>
             <a href="?page=progAcc">
+              <i class="fa fa-building"></i> <span>Kelola Data Program</span>
+            </a>
+          </li>
+          <li>
+            <a href="?page=prog">
               <i class="fa fa-building"></i> <span>Kelola Data Program</span>
             </a>
           </li>
@@ -200,63 +214,30 @@ if (isset($_SESSION['ses_username']) == "") {
               <i class="fa fa-steam"></i> <span>Data Lembaga Terdaftar</span>
             </a>
           </li>          
-          <li class="treeview">
-            <a href="#">
-              <i class="fa fa-files-o"></i>
-              <span>Master Desa RW</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li><a href="?page=desa"><i class="fa fa-steam"></i> Master Desa</a></li>
-              
-            </ul>
-          </li>
-
-          <li>
-            <a href="?page=imunisasi">
-              <i class="fa fa-medkit"></i> <span>Master Imunisasi</span>
-            </a>
-          </li>
 
           
           <li class="header">Menu Master</li>
-          <li>
-            <a href="?page=imunTampil">
-              <i class="fa fa-child"></i> <span>Kelola User</span>
-            </a>
-          </li>
-          <li>
-            <a href="?page=konsultasi">
-              <i class="fa fa-inbox"></i> <span>Konsultasi</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="?page=jadwal_tampil">
-              <i class="fa fa-calendar"></i> <span>Jadwal Program</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="?page=antrian_tampil">
-              <i class="fa fa-building"></i> <span>Antrian</span>
-            </a>
-          </li>
 
           <li class="treeview">
             <a href="#">
-              <i class="fa fa-share"></i> <span>Kelola User</span>
+              <i class="fa fa-share"></i> <span>Kelola Data Pengguna</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="?page=anggota"><i class="fa fa-circle-o"></i> Super User</a></li>
-              <li><a href="?page=anggota"><i class="fa fa-circle-o"></i> User</a></li>
+              <li><a href="?page=super"><i class="fa fa-users"></i> Super User</a></li>
+              <li><a href="?page=user"><i class="fa fa-user"></i> Donatur</a></li>
+              <li><a href="?page=usrPrg"><i class="fa fa-user"></i> Perseorangan</a></li>
+            </ul>
           </li>
-        
+          
+          <li>
+            </a>
+          </li>
+          
+          
+
         <?php
           }elseif ($data_status=="1"){
             ?>
@@ -265,57 +246,71 @@ if (isset($_SESSION['ses_username']) == "") {
               <i class="fa fa-building"></i> <span>Kelola Data Program</span>
             </a>
           </li>
-
-
           <li>
-            <a href="?page=imunisasi">
-              <i class="fa fa-medkit"></i> <span>Master Imunisasi</span>
+            <a href="?page=#">
+              <i class="fa fa-medkit"></i> <span>Kelola Donatur</span>
             </a>
           </li>
-
+          
+          <li>
+            <a href="?page=#">
+              <i class="fa fa-medkit"></i> <span>Kelola Dana</span>
+            </a>
+          </li>
+          
+          <li class="header">Menu Master</li>
+          
+          <li>
+            <a href="?page=imunTampil">
+              <i class="fa fa-child"></i> <span>Laporan Donasi</span>
+            </a>
+          </li>
+         
           <li class="treeview">
             <a href="#">
-              <i class="fa fa-share"></i> <span>Kelola Pengguna</span>
+              <i class="fa fa-share"></i> <span>Laporan Administrasi</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="?page=usrKader"><i class="fa fa-user-secret"></i> User Kader</a></li>
-              <li><a href="?page=usrAnggota"><i class="fa fa-user-secret"></i> User Anggota</a></li>
-            </ul>
+              <li><a href="?page=anggota"><i class="fa fa-circle-o"></i> Dana</a></li>
+              <li><a href="?page=anggota"><i class="fa fa-circle-o"></i> Data Donatur</a></li>
           </li>
+
+
+          <?php
+          }elseif ($data_status=="2"){
+            ?>
+            <li>
+            <a href="?page=prog">
+              <i class="fa fa-building"></i> <span>Kelola Data Program</span>
+            </a>
+          </li>
+          <li>
+            <a href="?page=imunisasi">
+              <i class="fa fa-medkit"></i> <span>Data Donatur</span>
+            </a>
+          </li>
+          <li>
+            <a href="?page=imunisasi">
+              <i class="fa fa-medkit"></i> <span>Kelola Dana</span>
+            </a>
+          </li>
+         
           <li class="header">Menu Master</li>
-          <li>
-            <a href="?page=imunTampil">
-              <i class="fa fa-child"></i> <span>Kelola User</span>
-            </a>
-          </li>
-          <li>
-            <a href="?page=konsultasi">
-              <i class="fa fa-inbox"></i> <span>Konsultasi</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="?page=jadwal_tampil">
-              <i class="fa fa-calendar"></i> <span>Jadwal Program</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="?page=antrian_tampil">
-              <i class="fa fa-building"></i> <span>Antrian</span>
-            </a>
-          </li>
-
           <li class="treeview">
             <a href="#">
-              <i class="fa fa-share"></i> <span>Kelola User</span>
+              <i class="fa fa-share"></i> <span>Laporan Administrasi</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
+            <ul class="treeview-menu">
+              <li><a href="?page=anggota"><i class="fa fa-circle-o"></i> Dana</a></li>
+              <li><a href="?page=anggota"><i class="fa fa-circle-o"></i> Data Donatur</a></li>
+          </li>
+         
             <ul class="treeview-menu">
               <li><a href="?page=anggota"><i class="fa fa-circle-o"></i> Super User</a></li>
               <li><a href="?page=anggota"><i class="fa fa-circle-o"></i> User</a></li>
@@ -323,7 +318,6 @@ if (isset($_SESSION['ses_username']) == "") {
         <?php
         }
         ?>
-        </ul>
         <li class="header">Menu Lain</li>
         <li>
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-sign-out"></i> <span>Logout</span></a>
@@ -377,6 +371,41 @@ if (isset($_SESSION['ses_username']) == "") {
             case 'lembAksi' :
               include "lembaga/aksi.php";
               break;
+            case 'jenis' :
+              include "jenis/view.php";
+              break;
+            case 'jnsUbah' :
+              include "jenis/ubah.php";
+              break;
+            case 'jnsAksi' :
+              include "jenis/aksi.php";
+              break;
+
+            case 'super' :
+              include "superUser/tampil.php";
+              break;
+            case 'supUbah' :
+              include "superUser/ubah.php";
+              break;
+            case 'supAksi' :
+              include "superUser/aksi.php";
+              break;
+
+            case 'user' :
+              include "user/tampil.php";
+              break;
+            case 'usrUbah' :
+              include "user/ubah.php";
+              break;
+            case 'usrAksi' :
+              include "user/aksi.php";
+              break;
+
+            case 'usrPrg' :
+              include "userPsg/tampil.php";
+              break;
+            case 'usrPrgAksi' :
+              include "userPsg/aksi.php";
             
           }
         } else {

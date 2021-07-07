@@ -11,6 +11,7 @@
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img//favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -18,6 +19,7 @@
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href ="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
@@ -54,7 +56,7 @@
           <li><a class="nav-link scrollto" href="#about">Program</a></li>
           <li><a class="nav-link scrollto" href="#features">Register</a></li>
           <li><a class="nav-link scrollto" href="login.php">Login</a></li>
-         
+        </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
@@ -72,6 +74,7 @@
             <h2>Bantu Saudara Kita untuk meringankan beban mereka</h2>
             <div class="text-center text-lg-start">
               <a href="register.php" class="btn-get-started scrollto">Register</a>
+              <a href="perseorangan.php" class="btn-get-started scrollto">Perseorangan</a>
             </div>
           </div>
         </div>

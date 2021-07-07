@@ -48,6 +48,7 @@
         <th>No</th>
         <th>Kode Lembaga</th>
         <th>Nama Lembaga</th>
+        <th>Bidang</th>
         <th>Alamat</th>
         <th>Pimpinan</th>
         <th></th>
@@ -58,7 +59,7 @@
     
         <?php
             
-            $sql_tampil = "SELECT * FROM lembaga";
+            $sql_tampil = "SELECT * FROM lembaga a, mst_jenis b WHERE a.idJenis=b.id";
             $query_tampil = mysqli_query($con, $sql_tampil);
             $no=1;
             while ($data = mysqli_fetch_array($query_tampil,MYSQLI_BOTH)) {
@@ -67,6 +68,7 @@
             <td><?php echo $no; ?></td>
             <td><?php echo $data['kdLembaga']; ?></td>
             <td><?php echo $data['nmLembaga']; ?></td>
+            <td><?php echo $data['nama']; ?></td>
             <td><?php echo $data['alamat']; ?></td>
             <td><?php echo $data['nmPimpinan']; ?></td>
             
@@ -104,9 +106,11 @@
                     <label>Jenis Lembaga</label>
                     <select name="txtJenis" class="form-control">
                         <option value="">- Lembaga -</option>
-                        <option value="Sosial">Sosial</option>
-                        <option value="Bencana">Bencana</option>
-                        <option value="Yatim-Lansia">Yatim / Lansia</option>
+                        <?php
+                        $p = mysqli_query($con, "select id, nama from mst_jenis") or die(mysqli_error($con));
+                        while ($datap = mysqli_fetch_array($p)) {
+                            echo '<option value="' . $datap['id'] . '">' . $datap['nama'] . '</option>';
+                        } ?>
                     </select>
                 </div>
 

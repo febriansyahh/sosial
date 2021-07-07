@@ -109,7 +109,8 @@ session_destroy();
             $_SESSION["ses_username"]=$data_login["username"];
             $_SESSION["ses_nama"]=$data_login["nama"];
             $_SESSION["ses_level"]=$data_login["level"];
-            $_SESSION["ses_idYayasan"]=$data_login["idYayasan"];
+            $_SESSION["ses_id"]=$data_login["id"];
+            $_SESSION["ses_idYayasan"]=$data_login["idLembaga"];
             
             echo "<script>alert('Login Berhasil')</script>";
             echo "<meta http-equiv='refresh' content='0; url=v_admin/index.php'>";

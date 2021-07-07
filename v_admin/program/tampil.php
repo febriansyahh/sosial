@@ -58,7 +58,7 @@
     
         <?php
             
-            $sql_tampil = "SELECT a. id, a.kdProgram, a.nmProgram, b.nmLembaga, a.keterangan, a.donasi FROM program a, lembaga b WHERE a.idLembaga=b.id";
+            $sql_tampil = "SELECT a.id, a.kdProgram, a.nmProgram, b.nmLembaga, a.keterangan, a.donasi FROM program a, lembaga b WHERE a.idLembaga=b.id";
             $query_tampil = mysqli_query($con, $sql_tampil);
             $no=1;
             while ($data = mysqli_fetch_array($query_tampil,MYSQLI_BOTH)) {
@@ -101,16 +101,16 @@
                 </div>
 
                 <div class="form-group">
-										<label>Lembaga</label>
-										<select name="txtIdLembaga" class="form-control">
-											<option value="">- Lembaga -</option>
-											<?php
-											$p = mysqli_query($con, "select id , nmLembaga from lembaga") or die(mysqli_error($con));
-											while ($datap = mysqli_fetch_array($p)) {
-												echo '<option value="' . $datap['id'] . '">' . $datap['nmLembaga'] . '</option>';
-											} ?>
-										</select>
-									</div>
+                <label>Lembaga</label>
+                <select name="txtIdLembaga" class="form-control">
+                    <option value="">- Lembaga -</option>
+                    <?php
+                    $p = mysqli_query($con, "select id , nmLembaga from lembaga") or die(mysqli_error($con));
+                    while ($datap = mysqli_fetch_array($p)) {
+                        echo '<option value="' . $datap['id'] . '">' . $datap['nmLembaga'] . '</option>';
+                    } ?>
+                </select>
+            </div>
                 
                 <div class="form-group">
                     <label>Keterangan</label>
