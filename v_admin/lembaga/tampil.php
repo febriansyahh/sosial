@@ -133,7 +133,11 @@
                     <label>No HP</label>
                     <input type="text" class="form-control" name="txtNoHp"/>
                 </div>
-                
+
+                <div class="form-group">
+                    <label>No Rekening</label>
+                    <input type="text" class="form-control" name="txtRekening"/>
+                </div>
 				<div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                     <button type="submit" class="btn btn-primary" name="btnSimpan">Simpan</button>

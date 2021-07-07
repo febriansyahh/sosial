@@ -113,6 +113,13 @@
             <input type="text" class="form-control" placeholder="Masukkan No Handphone" name="txtNohp" required="">
             </div>
         </div>
+
+        <div class="form-group">
+        <label class="col-sm-2 control-label">No Rekening </label>
+            <div class="col-sm-8">
+            <input type="text" class="form-control" placeholder="Masukkan No Rekening" name="txtNoRek" required="">
+            </div>
+        </div>
         <center>
             <a href="index.php"class='btn btn btn-warning btn-sm'>Kembali</a>
             <button type="submit" class="btn btn-success btn-sm" name="btnDaftarPer">Registrasi</button>
@@ -146,7 +153,7 @@
  $konek = mysqli_connect("localhost","root","","sosial"); 
  if (isset ($_POST['btnDaftarPer'])){
         $date = date('Y-m-d');
-		$sql_simpan = "INSERT INTO perseorangan (kdPerseorangan, nama, jekel, alamat, idJenis, berkas, no_hp, tgl_daftar) VALUES (
+		$sql_simpan = "INSERT INTO perseorangan (kdPerseorangan, nama, jekel, alamat, idJenis, berkas, no_hp, no_rek, tgl_daftar) VALUES (
                     '".$_POST['txtKd']."',
                     '".$_POST['txtNm']."',
 					'".$_POST['txtJekel']."',
@@ -154,6 +161,7 @@
                     '".$_POST['txtJenis']."',
                     'NULL',
                     '".$_POST['txtNohp']."',
+                    '".$_POST['txtNoRek']."',
                     '$date')";
 		$query_simpan = mysqli_query($konek,$sql_simpan);
 

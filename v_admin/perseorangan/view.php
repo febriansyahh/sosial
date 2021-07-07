@@ -7,11 +7,10 @@
 <br>
 <div class="card mb-3">
 <div class="card-header">
-
 <br>
 <div class="box box-primary">
 <div class="box-header with-border">
-  <h3 class="box-title">Super User</h3>
+  <h3 class="box-title">Donasi Perseorangan</h3>
 
   <div class="box-tools pull-right">
     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -19,16 +18,18 @@
     <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
   </div>
 </div>
-<div class="box-body" action="" method="POST" enctype="multipart/form-data">
+<div class="box-body">
 <table id="example1" class="table table-bordered table-striped">
 <thead>
     <center>
       <tr>
         <th>No</th>
-        <th>Kode</th>
-        <th>Nama Perseorangan</th>
-        <th>Username</th>
-        <th>Status</th>
+        <th>ID</th>
+        <th>Nama</th>
+        <th>Jekel</th>
+        <th>Alamat</th>
+        <th>No Hp</th>
+        <th>Rekening</th>
         <th></th>
     </tr>
     </center>
@@ -36,8 +37,7 @@
     <tbody>
     
         <?php
-            
-            $sql_tampil = "SELECT a.id, a.username, a.status, b.nama, b.kdPerseorangan FROM user a, perseorangan b WHERE a.kdUser=b.kdPerseorangan";
+            $sql_tampil = "SELECT * FROM perseorangan";
             $query_tampil = mysqli_query($con, $sql_tampil);
             $no=1;
             while ($data = mysqli_fetch_array($query_tampil,MYSQLI_BOTH)) {
@@ -46,22 +46,25 @@
             <td><?php echo $no; ?></td>
             <td><?php echo $data['kdPerseorangan']; ?></td>
             <td><?php echo $data['nama']; ?></td>
-            <td><?php echo $data['username']; ?></td>
-            <td><?php echo $data['status']; ?></td>
-          
             <td>
-            <?php
-               if($data['status'] == 'Aktif'){
-              ?>
-                <a href="?page=usrPrgUbah&kode=<?php echo $data['id']; ?>"class='btn btn-warning btn-sm'><i class="fa fa-edit"></i></a>
-              <?php
-              } else {
-                ?>
-                <a href="?page=konfirmed&kode=<?php echo $data['id']; ?>"onclick="return confirm('Aktifkan User ini ?')" class='btn btn-success btn-sm'><i class="fa fa-check"></i></a>
-                <a href="?page=usrUbah&kode=<?php echo $data['id']; ?>"class='btn btn-warning btn-sm'><i class="fa fa-edit"></i></a>
                 <?php
-              }
-              ?>
+                if ($data['jekel']== 'P'){
+                ?>
+                Perempuan
+                <?php 
+                }else{
+                ?>
+                Laki-Laki
+                </td>
+                <?php 
+                }?>
+            <td><?php echo $data['alamat']; ?></td>
+            <td><?php echo $data['no_hp']; ?></td>
+            <td><?php echo $data['no_rek']; ?></td>
+
+            <td>
+                    <a href="?page=prsgUbah&kode=<?php echo $data['id']; ?>"class='btn btn-warning btn-sm'><i class="fa fa-edit"></i></a>
+                    <a href="?page=prsgAksi&kode=<?php echo $data['id']; ?>"onclick="return confirm('Hapus Perseorangan ini ?')" class='btn btn-danger btn-sm'><i class="fa fa-trash"></i></i></a>
             </td>
         </tr>
         <?php
@@ -71,4 +74,4 @@
         ?>
     </tbody>
   </table>
- 
+  

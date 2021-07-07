@@ -3,15 +3,15 @@
 
  	if (isset($_POST['btnSimpan'])) {
          $date = date('Y-m-d');
-		$sql_insert = "INSERT INTO lembaga (kdLembaga, nmLembaga, idJenis, alamat, nmPimpinan, berkas, no_hp, no_rek,tgl) VALUES (
+		$sql_insert = "INSERT INTO lembaga (kdLembaga, nmLembaga, idJenis, alamat, nmPimpinan, berkas, no_hp, tgl) VALUES (
 					'".$_POST['txtKdLembaga']."',
 					'".$_POST['txtNmLembaga']."',
 					'".$_POST['txtJenis']."',
 					'".$_POST['txtAlamat']."',
                     '".$_POST['txtNmPimpinan']."',
+                    
                     'NULL',
                     '".$_POST['txtNoHp']."',
-                    '".$_POST['txtRekening']."',
                     '$date')";
 		$query_insert = mysqli_query($con,$sql_insert) or die (mysqli_connect_error());
 		
@@ -34,8 +34,7 @@ elseif(isset ($_POST['btnUBAH'])){
         alamat='".$_POST['txtKeterangan']."',
         nmPimpinan='".$_POST['txtDonasi']."',
         berkas='".$_POST['txtDonasi']."',
-        no_hp='".$_POST['txtDonasi']."',
-        no_rek='".$_POST['txtRekening']."',
+        noHP='".$_POST['txtDonasi']."',
         tgl='".$_POST['txtDonasi']."'
         WHERE id='".$_POST['txtId']."'";
     $query_ubah = mysqli_query($con, $sql_ubah);

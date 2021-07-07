@@ -205,15 +205,15 @@ if (isset($_SESSION['ses_username']) == "") {
             </a>
           </li>
           <li>
-            <a href="?page=prog">
-              <i class="fa fa-building"></i> <span>Kelola Data Program</span>
-            </a>
-          </li>
-          <li>
             <a href="?page=lembaga">
               <i class="fa fa-steam"></i> <span>Data Lembaga Terdaftar</span>
             </a>
           </li>          
+          <li>
+            <a href="?page=prsg">
+              <i class="fa fa-building"></i> <span>Data Perseorangan</span>
+            </a>
+          </li>
 
           
           <li class="header">Menu Master</li>
@@ -227,7 +227,6 @@ if (isset($_SESSION['ses_username']) == "") {
             </a>
             <ul class="treeview-menu">
               <li><a href="?page=super"><i class="fa fa-users"></i> Super User</a></li>
-              <li><a href="?page=user"><i class="fa fa-user"></i> Donatur</a></li>
               <li><a href="?page=usrPrg"><i class="fa fa-user"></i> Perseorangan</a></li>
             </ul>
           </li>
@@ -247,7 +246,7 @@ if (isset($_SESSION['ses_username']) == "") {
             </a>
           </li>
           <li>
-            <a href="?page=#">
+            <a href="?page=donatur">
               <i class="fa fa-medkit"></i> <span>Kelola Donatur</span>
             </a>
           </li>
@@ -276,6 +275,7 @@ if (isset($_SESSION['ses_username']) == "") {
             <ul class="treeview-menu">
               <li><a href="?page=anggota"><i class="fa fa-circle-o"></i> Dana</a></li>
               <li><a href="?page=anggota"><i class="fa fa-circle-o"></i> Data Donatur</a></li>
+            </ul>
           </li>
 
 
@@ -297,8 +297,13 @@ if (isset($_SESSION['ses_username']) == "") {
               <i class="fa fa-medkit"></i> <span>Kelola Dana</span>
             </a>
           </li>
-         
-          <li class="header">Menu Master</li>
+          <li>
+            <a href="?page=imunisasi">
+              <i class="fa fa-medkit"></i> <span>Data User</span>
+            </a>
+          </li>
+
+          <li class="header">Menu Lain</li>
           <li class="treeview">
             <a href="#">
               <i class="fa fa-share"></i> <span>Laporan Administrasi</span>
@@ -309,12 +314,9 @@ if (isset($_SESSION['ses_username']) == "") {
             <ul class="treeview-menu">
               <li><a href="?page=anggota"><i class="fa fa-circle-o"></i> Dana</a></li>
               <li><a href="?page=anggota"><i class="fa fa-circle-o"></i> Data Donatur</a></li>
+            </ul>
           </li>
          
-            <ul class="treeview-menu">
-              <li><a href="?page=anggota"><i class="fa fa-circle-o"></i> Super User</a></li>
-              <li><a href="?page=anggota"><i class="fa fa-circle-o"></i> User</a></li>
-          </li>
         <?php
         }
         ?>
@@ -360,17 +362,39 @@ if (isset($_SESSION['ses_username']) == "") {
               include "program/konfirm.php";
               break;
             
+            case 'donatur' :
+              include "donatur/tampil.php";
+              break;
+            case 'donUbah' :
+              include "donatur/ubah.php";
+              break;
+            case 'donAksi' :
+              include "donatur/aksi.php";
+              break;
+
             case 'lembaga':
               include "lembaga/tampil.php";
               break;
-            
             case 'lembUbah':
               include "lembaga/ubah.php";
               break;
-
             case 'lembAksi' :
               include "lembaga/aksi.php";
               break;
+
+            case 'prsg' :
+              include "perseorangan/view.php";
+              break;
+            case 'prsgUbah' :
+              include "perseorangan/ubah.php";
+              break;
+            case 'prsgAksi' :
+              include "perseorangan/aksi.php";
+              break;
+            case 'konfirmed' :
+              include "perseorangan/acc.php";
+              break;
+
             case 'jenis' :
               include "jenis/view.php";
               break;
@@ -403,6 +427,9 @@ if (isset($_SESSION['ses_username']) == "") {
 
             case 'usrPrg' :
               include "userPsg/tampil.php";
+              break;
+            case 'usrPrgUbah' :
+              include "userPsg/ubah.php";
               break;
             case 'usrPrgAksi' :
               include "userPsg/aksi.php";

@@ -11,10 +11,10 @@
 
     if ($query_ubah) {
         echo "<script>alert('Ubah Berhasil')</script>";
-        echo "<meta http-equiv='refresh' content='0; url=index.php?page=user'>";
+        echo "<meta http-equiv='refresh' content='0; url=index.php?page=usrPrg'>";
     }else{
         echo "<script>alert('Ubah Gagal')</script>";
-        echo "<meta http-equiv='refresh' content='0; url=index.php?page=user'>";
+        echo "<meta http-equiv='refresh' content='0; url=index.php?page=usrPrg'>";
     }
     //selesai proses ubah
 
@@ -26,10 +26,10 @@
   
               if ($query_arsip) {
                   echo "<script>alert('Akun Diaktifkan')</script>";
-                  echo "<meta http-equiv='refresh' content='0; url=?page=user'>";
+                  echo "<meta http-equiv='refresh' content='0; url=?page=usrPrg'>";
               }else{
                   echo "<script>alert('Akun Gagal Diaktifkan')</script>";
-                  echo "<meta http-equiv='refresh' content='0; url=?page=user'>";
+                  echo "<meta http-equiv='refresh' content='0; url=?page=usrPrg'>";
               }
           }
     //selesai proses hapus
