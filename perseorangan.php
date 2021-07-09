@@ -49,7 +49,7 @@
 		$nama = $_FILES['txtBerkas']['name'];
 		$x = explode('.', $nama);
 		$ekstensi = strtolower(end($x));
-		$namas = 'Perseorangan_' . $_POST['txtNm'] . "." . $ekstensi;
+		$namas = 'Perseorangan_' . $_POST['txtNm'] . "." . $ekstensicd;
 		$ukuran	= $_FILES['txtBerkas']['size'];
 		$file_tmp = $_FILES['txtBerkas']['tmp_name'];
 
