@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Jul 2021 pada 05.32
+-- Waktu pembuatan: 09 Jul 2021 pada 13.58
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 7.3.27
 
@@ -83,7 +83,9 @@ CREATE TABLE `lembaga` (
 --
 
 INSERT INTO `lembaga` (`id`, `kdLembaga`, `nmLembaga`, `idJenis`, `alamat`, `nmPimpinan`, `berkas`, `no_hp`, `no_rek`, `tgl`) VALUES
-(3, 'LMB001', 'Yayasan Pelita Hati', 2, 'Ds. Dersalam RT 01 RW 08 Kecamatan Bae', 'Hj. Nuryanti', 'NULL', '0898767234', '086757222', '2021-07-06');
+(5, 'LMB003', 'Yayasan Pelita Hati Ku', 3, 'Ds. Mlati Kidul RT 01 RW 04 Kec. Kota Kudus', 'H. Nooryanto', 'Lembaga_Yayasan Pelita Hati Ku.zip', '0898767234', '088891817', '2021-07-09'),
+(6, 'LMB004', 'Yayasan Pita Kuning', 4, 'Ds. Mlati Kidul RT 01 RW 04 Kec. Kota Kudus', 'Sunardi ', 'Lembaga_Yayasan Pita Kuning.zip', '0898767234', '088857444', '2021-07-09'),
+(7, 'LMB005', 'Yayasan Pelita Hati Ku', 3, 'Ds. Golantepus RT 01', 'H. Nooryanto', 'Lembaga_Yayasan Pelita Hati Ku.zip', '0898767234', '131414144', '2021-07-09');
 
 -- --------------------------------------------------------
 
@@ -131,7 +133,10 @@ CREATE TABLE `perseorangan` (
 --
 
 INSERT INTO `perseorangan` (`id`, `kdPerseorangan`, `nama`, `jekel`, `alamat`, `idJenis`, `berkas`, `no_hp`, `no_rek`, `tgl_daftar`) VALUES
-(3, 'DPM001', 'Lania Widiastuti Ningsih', 'P', 'Ds. Golantepus RT 01', 5, 'NULL', '08980695197', '0006576788', '2021-07-07');
+(3, 'DPM001', 'Lania Widiastuti Ningsih', 'P', 'Ds. Golantepus RT 01', 5, 'NULL', '08980695197', '0006576788', '2021-07-07'),
+(4, 'DPM002', 'Lovan', 'L', 'Ds. Dawe', 5, 'Perseorangan_Lovan.1', '08980695197', '0006576788', '2021-07-09'),
+(5, 'DPM003', 'Yudha Aris', 'L', 'Ds. Ploso', 5, 'Perseorangan_Yudha Aris.', '08980695197', '0006576788', '2021-07-09'),
+(6, 'DPM004', 'Rina Widiastuti', 'P', 'Ds. Dersalam RT 01 RW 06 Kec Bae', 5, 'Perseorangan_Rina Widiastuti.zip', '08980695197', '0006576788', '2021-07-09');
 
 -- --------------------------------------------------------
 
@@ -180,7 +185,7 @@ CREATE TABLE `super_user` (
 
 INSERT INTO `super_user` (`id`, `nama`, `username`, `password`, `idLembaga`, `level`, `status`) VALUES
 (1, 'Administrator Sistem', 'admin', 'admin', 0, 0, 'Aktif'),
-(2, 'Febrian', 'febrian', 'febrian', 2, 2, 'Aktif'),
+(2, 'Ali', 'ali', 'ali', 2, 2, 'Aktif'),
 (3, 'Kepala Sie', 'kasie', 'kasie', 0, 1, 'Aktif'),
 (4, 'Seksie', 'seksie', 'seksie', 0, 2, 'Aktif');
 
@@ -218,7 +223,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `kdUser`, `nama`, `username`, `password`, `status`) VALUES
-(1, 'DPM001', 'Lania', 'lania', 'lania', 'Aktif');
+(1, 'DPM001', 'Lania', 'lania', 'lania', 'Aktif'),
+(4, 'DPM002', 'Lovaneo', 'lovan', 'lovan', 'Nonaktif'),
+(5, 'DPM003', 'Yudha', 'yudha', 'yudha', 'Nonaktif'),
+(6, 'DPM004', 'Rina', 'rina', 'rina123', 'Nonaktif');
 
 --
 -- Indexes for dumped tables
@@ -298,7 +306,7 @@ ALTER TABLE `donatur`
 -- AUTO_INCREMENT untuk tabel `lembaga`
 --
 ALTER TABLE `lembaga`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `mst_jenis`
@@ -310,7 +318,7 @@ ALTER TABLE `mst_jenis`
 -- AUTO_INCREMENT untuk tabel `perseorangan`
 --
 ALTER TABLE `perseorangan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `program`
@@ -334,7 +342,7 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
