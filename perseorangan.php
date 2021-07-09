@@ -48,8 +48,8 @@
 		$ekstensi_diperbolehkan	= array('rar','zip', '7z');
 		$nama = $_FILES['txtBerkas']['name'];
 		$x = explode('.', $nama);
-		$namas = 'Perseorangan_' . $_POST['txtNm'] . "." . $x[1];
 		$ekstensi = strtolower(end($x));
+		$namas = 'Perseorangan_' . $_POST['txtNm'] . "." . $ekstensi;
 		$ukuran	= $_FILES['txtBerkas']['size'];
 		$file_tmp = $_FILES['txtBerkas']['tmp_name'];
 

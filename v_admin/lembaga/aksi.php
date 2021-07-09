@@ -1,28 +1,6 @@
 <?php
 include_once("../koneksi.php");
 
-function uploadFiles()
-{
-	$ekstensi_diperbolehkan	= array('rar', 'zip', '7z');
-	$nama = $_FILES['txtBerkasLembaga']['name'];
-	$x = explode('.', $nama);
-	$namas = 'Lembaga_' . $_POST['txtNmLembaga'] . "." . $x[1];
-	$ekstensi = strtolower(end($x));
-	$ukuran	= $_FILES['txtBerkasLembaga']['size'];
-	$file_tmp = $_FILES['txtBerkasLembaga']['tmp_name'];
-
-	if (in_array($ekstensi, $ekstensi_diperbolehkan) === true) {
-		if ($ukuran < 41943040) {
-			move_uploaded_file($file_tmp, 'files/' . $namas);
-			return $namas;
-		} else {
-			return;
-		}
-	} else {
-		return;
-	}
-}
-
 if (isset($_POST['btnSimpan'])) {
 	$date = date('Y-m-d');
 	$sql_insert = "INSERT INTO lembaga (kdLembaga, nmLembaga, idJenis, alamat, nmPimpinan, berkas, no_hp, no_rek,tgl) VALUES (
@@ -84,3 +62,27 @@ if (isset($_POST['btnSimpan'])) {
 	}
 	//selesai proses hapus
 }
+
+function uploadFiles()
+{
+	$ekstensi_diperbolehkan	= array('rar', 'zip', '7z');
+	$nama = $_FILES['txtBerkasLembaga']['name'];
+	$x = explode('.', $nama);
+	$ekstensi = strtolower(end($x));
+	$namas = 'Lembaga_' . $_POST['txtNmLembaga'] . "." . $ekstensi;
+	$ukuran	= $_FILES['txtBerkasLembaga']['size'];
+	$file_tmp = $_FILES['txtBerkasLembaga']['tmp_name'];
+
+	if (in_array($ekstensi, $ekstensi_diperbolehkan) === true) {
+		if ($ukuran < 41943040) {
+			move_uploaded_file($file_tmp, 'files/' . $namas);
+			return $namas;
+		} else {
+			return;
+		}
+	} else {
+		return;
+	}
+}
+
+?>
