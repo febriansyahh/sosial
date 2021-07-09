@@ -1,7 +1,7 @@
 <?php
 include_once("../koneksi.php");
 
-function uploadFile()
+function uploadFiles()
 {
 	$ekstensi_diperbolehkan	= array('rar', 'zip', '7z');
 	$nama = $_FILES['txtBerkasLembaga']['name'];
@@ -31,7 +31,7 @@ if (isset($_POST['btnSimpan'])) {
 					'" . $_POST['txtJenis'] . "',
 					'" . $_POST['txtAlamat'] . "',
                     '" . $_POST['txtNmPimpinan'] . "',
-                    '".uploadFile()."',
+                    '".uploadFiles()."',
                     '" . $_POST['txtNoHp'] . "',
                     '" . $_POST['txtRekening'] . "',
                     '$date')";
