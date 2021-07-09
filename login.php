@@ -49,7 +49,7 @@
 <body class="hold-transition login-page">
   <div class="login-box">
     <div class="login-logo">
-      <img src="images/posyandu.png" height="100px" width="100px;" />
+      <img src="images/donasi.jpg" height="100px" width="100px;" />
       <a href="login2.php"><b>Donasi-Ku</b></a>
     </div>
     <!-- /.login-logo -->
