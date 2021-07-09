@@ -111,7 +111,7 @@
           <br> <font face="Courier new"> Portal Donasi Lembaga </font>
           <br> <font face="Courier new">Se-Kabupaten Kudus</font>
           <br> <br><br>
-          <!-- <img src="../images/logo3smk.png" height="200px" width="350px;" align="center"/> -->
+          <img src="../images/donasi.jpg" height="200px" width="350px;" align="center"/>
           </center>
       </p>
       <!-- /.row -->
