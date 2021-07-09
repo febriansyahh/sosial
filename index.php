@@ -73,7 +73,7 @@
             <h2>Bantu Saudara Kita untuk meringankan beban mereka</h2>
             <div class="text-center text-lg-start">
               <a href="register.php" class="btn-get-started scrollto">Register</a>
-              <a href="register.php" class="btn-get-started scrollto">Ajukan Donasi</a>
+              <a href="perseorangan.php" class="btn-get-started scrollto">Ajukan Donasi</a>
             </div>
           </div>
         </div>

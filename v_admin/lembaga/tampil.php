@@ -128,7 +128,7 @@
 
                 <div class="form-group">
                     <label>Berkas</label>
-                    <input type="file" class="form-control" name="txtBerkas"/>
+                    <input type="file" class="form-control" name="txtBerkasLembaga"/>
                 </div>
 
                 <div class="form-group">

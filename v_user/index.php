@@ -231,6 +231,7 @@
   
   <div class="content-wrapper">
     <div class="container-fluid">
+            <?php echo $_GET['page'] ?>
             <!-- Menjadikan halaman web dinamis, 
                 dengan menjadikan halaman lain yang dipanggil sebagai sebuah konten dari index.php-->
                 <?php 
