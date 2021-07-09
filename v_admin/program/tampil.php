@@ -50,6 +50,8 @@
         <th>Lembaga</th>
         <th>Keterangan</th>
         <th>Donasi</th>
+        <th>Rekening</th>
+        <th></th>
         <th>Piihan</th>
     </tr>
     </center>
@@ -58,7 +60,7 @@
     
         <?php
             
-            $sql_tampil = "SELECT a.id, a.kdProgram, a.nmProgram, b.nmLembaga, a.keterangan, a.donasi FROM program a, lembaga b WHERE a.idLembaga=b.id";
+            $sql_tampil = "SELECT a.id, a.kdProgram, a.nmProgram, b.nmLembaga, a.keterangan, a.donasi, a.status, b.no_rek FROM program a, lembaga b WHERE a.idLembaga=b.id";
             $query_tampil = mysqli_query($con, $sql_tampil);
             $no=1;
             while ($data = mysqli_fetch_array($query_tampil,MYSQLI_BOTH)) {
@@ -70,6 +72,20 @@
             <td><?php echo $data['nmLembaga']; ?></td>
             <td><?php echo $data['keterangan']; ?></td>
             <td><?php echo $data['donasi']; ?></td>
+            <td><?php echo $data['no_rek']; ?></td>
+            <td>
+            <?php
+            if($data['status']== 'P'){
+            ?>
+            <span class="badge bg-success">Publish</span>
+            <?php
+            }elseif($data['status']=='T'){
+            ?><span class="badge bg-danger">Belum ACC</span>
+            <?php
+            }else{
+            ?><span class="badge bg-warning">Arsip</span>
+            </td>
+            <?php } ?>
             <td>
                 <a href="?page=progUbah&kode=<?php echo $data['id']; ?>"class='btn btn-warning btn-sm'><i class="fa fa-edit"></i></a>
                 <a href="?page=progAksi&kode=<?php echo $data['id']; ?>"onclick="return confirm('Apakah anda yakin hapus data ini ?')" class='btn btn-danger btn-sm'><i class="fa fa-trash"></i></i></a>

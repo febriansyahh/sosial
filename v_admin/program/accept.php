@@ -57,11 +57,13 @@
                if($data['status'] == 'T'){
               ?>
               <a href="?page=progKonfirm&kode=<?php echo $data['id']; ?>"class='btn btn-warning btn-sm'><i class="fa fa-check"></i></a>
+              <a href="?page=progDet&kode=<?php echo $data['id']; ?>"class='btn btn-success btn-sm'><i class="fa fa-eye"></i></a>
                 <a href="?page=progAksi&kode=<?php echo $data['id']; ?>"onclick="return confirm('Apakah anda yakin hapus data ini ?')" class='btn btn-danger btn-sm'><i class="fa fa-trash"></i></i></a>
               <?php
               } else {
                 ?>
                  <a href="?page=progArchive&kode=<?php echo $data['id']; ?>"class='btn btn-success btn-sm'><i class="fa fa-archive"></i></a>
+                 <a href="?page=progDet&kode=<?php echo $data['id']; ?>"class='btn btn-success btn-sm'><i class="fa fa-eye"></i></a>
                 <a href="?page=progAksi&kode=<?php echo $data['id']; ?>"onclick="return confirm('Apakah anda yakin hapus data ini ?')" class='btn btn-danger btn-sm'><i class="fa fa-trash"></i></i></a>
                 <?php
               }

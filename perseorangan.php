@@ -1,13 +1,21 @@
 <?php 
     
     include_once("koneksi.php");
-	$carikode = mysqli_query($con,"SELECT MAX(id) FROM perseorangan");
+    $carikode = mysqli_query($con,"SELECT MAX(kdLembaga) FROM lembaga");
+	// menjadikannya array
 	$datakode = mysqli_fetch_array($carikode);
+	// jika $datakode
 	if ($datakode) {
+	// membuat variabel baru untuk mengambil kode mulai dari 3
 	$nilaikode = substr($datakode[0], 3);
+	// menjadikan $nilaikode ( int )
 	$kode = (int) $nilaikode;
+	// setiap $kode di tambah 1
 	$kode = $kode + 1;
-	$hasilkode = "DPM".str_pad($kode, 3, "0", STR_PAD_LEFT);
+	// hasil untuk menambahkan kode 
+	// angka 3 untuk menambahkan tiga angka setelah B dan angka 0 angka yang berada di tengah
+	// atau angka sebelum $kode
+	$hasilkode = "DPM".str_pad($kode,3, "0", STR_PAD_LEFT);
 	}else{
 		$hasilkode = "DPM001";
 	}

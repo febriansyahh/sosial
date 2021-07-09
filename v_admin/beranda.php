@@ -68,28 +68,28 @@
           <div class="small-box bg-yellow">
             <div class="inner">
               <h3><?php // menghitung
-                    $sql_hitung = "SELECT COUNT(nisn) from tb_peserta";
+                    $sql_hitung = "SELECT COUNT(id) from donatur";
                     $q_hit= mysqli_query($con, $sql_hitung);
                     while($row = mysqli_fetch_array($q_hit)) {
                         echo  $row[0]."";
                     }
                     ?></h3>
 
-              <p>User Terdaftar</p>
+              <p>Donatur</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="?halaman=siswa_tampil" class="small-box-footer">Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="?page=donatur" class="small-box-footer">Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-red">
+          <div class="small-box bg-light-blue">
             <div class="inner">
               <h3><?php // menghitung
-                    $sql_hitung = "SELECT COUNT(id_loker) from tb_loker where status ='Tangguhkan'";
+                    $sql_hitung = "SELECT COUNT(kdPerseorangan) from perseorangan a, user b where b.kdUser=a.kdPerseorangan AND b.status ='Aktif'";
                     $q_hit= mysqli_query($con, $sql_hitung);
                     while($row = mysqli_fetch_array($q_hit)) {
                         echo  $row[0]."";
@@ -101,7 +101,7 @@
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="#" class="small-box-footer">Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="?prog=prsg" class="small-box-footer">Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->

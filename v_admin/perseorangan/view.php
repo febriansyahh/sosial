@@ -64,6 +64,7 @@
 
             <td>
                     <a href="?page=prsgUbah&kode=<?php echo $data['id']; ?>"class='btn btn-warning btn-sm'><i class="fa fa-edit"></i></a>
+                    <a href="?page=prsgDet&kode=<?php echo $data['id']; ?>"class='btn btn-warning btn-sm'><i class="fa fa-eye"></i></a>
                     <a href="?page=prsgAksi&kode=<?php echo $data['id']; ?>"onclick="return confirm('Hapus Perseorangan ini ?')" class='btn btn-danger btn-sm'><i class="fa fa-trash"></i></i></a>
             </td>
         </tr>

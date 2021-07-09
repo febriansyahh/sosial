@@ -51,6 +51,7 @@
         <th>Bidang</th>
         <th>Alamat</th>
         <th>Pimpinan</th>
+        <th>No Rekening</th>
         <th></th>
     </tr>
     </center>
@@ -71,6 +72,7 @@
             <td><?php echo $data['nama']; ?></td>
             <td><?php echo $data['alamat']; ?></td>
             <td><?php echo $data['nmPimpinan']; ?></td>
+            <td><?php echo $data['no_rek']; ?></td>
             
             <td>
                 <a href="?page=lembUbah&kode=<?php echo $data['id']; ?>"class='btn btn-warning btn-sm'><i class="fa fa-edit"></i></a>
@@ -107,7 +109,7 @@
                     <select name="txtJenis" class="form-control">
                         <option value="">- Lembaga -</option>
                         <?php
-                        $p = mysqli_query($con, "select id, nama from mst_jenis") or die(mysqli_error($con));
+                        $p = mysqli_query($con, "select id, nama from mst_jenis WHERE jenis='1'") or die(mysqli_error($con));
                         while ($datap = mysqli_fetch_array($p)) {
                             echo '<option value="' . $datap['id'] . '">' . $datap['nama'] . '</option>';
                         } ?>

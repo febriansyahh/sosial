@@ -18,7 +18,7 @@ if (isset($_SESSION['ses_username']) == "") {
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Posyandu-Ku</title>
+  <title>Donasi-Ku</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -251,16 +251,10 @@ if (isset($_SESSION['ses_username']) == "") {
             </a>
           </li>
           
-          <li>
-            <a href="?page=#">
-              <i class="fa fa-medkit"></i> <span>Kelola Dana</span>
-            </a>
-          </li>
-          
           <li class="header">Menu Master</li>
           
           <li>
-            <a href="?page=imunTampil">
+            <a href="?page=#">
               <i class="fa fa-child"></i> <span>Laporan Donasi</span>
             </a>
           </li>
@@ -273,8 +267,8 @@ if (isset($_SESSION['ses_username']) == "") {
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="?page=anggota"><i class="fa fa-circle-o"></i> Dana</a></li>
-              <li><a href="?page=anggota"><i class="fa fa-circle-o"></i> Data Donatur</a></li>
+              <li><a href="?page=#"><i class="fa fa-circle-o"></i> Dana</a></li>
+              <li><a href="?page=#"><i class="fa fa-circle-o"></i> Data Donatur</a></li>
             </ul>
           </li>
 
@@ -288,18 +282,18 @@ if (isset($_SESSION['ses_username']) == "") {
             </a>
           </li>
           <li>
-            <a href="?page=imunisasi">
+            <a href="?page=donatur">
               <i class="fa fa-medkit"></i> <span>Data Donatur</span>
             </a>
           </li>
           <li>
-            <a href="?page=imunisasi">
+            <a href="?page=#">
               <i class="fa fa-medkit"></i> <span>Kelola Dana</span>
             </a>
           </li>
           <li>
-            <a href="?page=imunisasi">
-              <i class="fa fa-medkit"></i> <span>Data User</span>
+            <a href="?page=user">
+              <i class="fa fa-medkit"></i> <span>Data User Donatur</span>
             </a>
           </li>
 
@@ -361,6 +355,12 @@ if (isset($_SESSION['ses_username']) == "") {
             case 'progKonfirm' :
               include "program/konfirm.php";
               break;
+            case 'progDet' :
+              include "program/detail.php";
+              break;
+            case'progArchive' :
+              include "program/arsip.php";
+              break;
             
             case 'donatur' :
               include "donatur/tampil.php";
@@ -390,6 +390,9 @@ if (isset($_SESSION['ses_username']) == "") {
               break;
             case 'prsgAksi' :
               include "perseorangan/aksi.php";
+              break;
+            case 'prsgDet' :
+              include "perseorangan/detail.php";
               break;
             case 'konfirmed' :
               include "perseorangan/acc.php";
@@ -456,7 +459,7 @@ if (isset($_SESSION['ses_username']) == "") {
           <div class="modal-body">Pilih Log Out Jika ingin keluar.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="../login.php">Logout</a>
+            <a class="btn btn-primary" href="../loginAdmin.php">Logout</a>
           </div>
         </div>
       </div>

@@ -11,7 +11,6 @@
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img//favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -19,7 +18,6 @@
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href ="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
@@ -56,7 +54,8 @@
           <li><a class="nav-link scrollto" href="#about">Program</a></li>
           <li><a class="nav-link scrollto" href="#features">Register</a></li>
           <li><a class="nav-link scrollto" href="login.php">Login</a></li>
-        </ul>
+          <li><a class="nav-link scrollto" href="loginPer.php">Ajukan Donasi</a></li>
+         
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
@@ -74,7 +73,7 @@
             <h2>Bantu Saudara Kita untuk meringankan beban mereka</h2>
             <div class="text-center text-lg-start">
               <a href="register.php" class="btn-get-started scrollto">Register</a>
-              <a href="perseorangan.php" class="btn-get-started scrollto">Perseorangan</a>
+              <a href="register.php" class="btn-get-started scrollto">Ajukan Donasi</a>
             </div>
           </div>
         </div>
@@ -129,27 +128,11 @@
     <tbody>
         
    
-        <?php
-        	include_once("koneksi.php");
-            $sql_tampil = "SELECT * FROM yayasan WHERE status ='Aktif'";
-            $query_tampil = mysqli_query($con, $sql_tampil);
-            $no=1;
-            while ($data = mysqli_fetch_array($query_tampil,MYSQLI_BOTH)) {
-                
-        ?>
         <tr>       
-            <td><?php echo $no; ?></td>
-            <td><?php echo $data['id']; ?></td>
-            <td><?php echo $data['n']; ?></td>
-            <td><?php echo $data['nm_loker']; ?></td>
-            <td><?php echo $data['keterangan']; ?></td>
+          
             
         </tr>
-        <?php
-            $no++;
-            }
-        
-        ?>
+    
     </tbody>
   </table>
                   </div>
@@ -170,55 +153,51 @@
 
     <!-- ======= About Section ======= -->
     <section id="features" class="features">
-      <div class="container-fluid">
+      <div class="container">
 
-        <div class="row">
-          <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch" data-aos="fade-right">
-          <img src="images/posyandu.png" height="350px" width="350px;"/></a>
+        <div class="row content">
+              <div class="col-md-4" data-aos="fade-right">
+                <img src="assets/img/details-1.png" class="img-fluid" alt="">
+              </div>
+                  <div class="col-md-8 pt-4" data-aos="fade-up">
+                        <h3>Syarat & Ketentuan  </h3>
+                        <p>Donasi Individu</p>
+                        <ul>
+                          <li><i class="fa fa-check"></i> KTP</li>
+                          <li><i class="fa fa-check"></i> NPWP (Bila ada)</li>
+                          <li><i class="fa fa-check"></i> Nomor Rekening Penerima</li>
+                          <li><i class="fa fa-check"></i> Akte Kelahiran / Kartu Keluarga (apabila penerima manfaat adalah anak)</li>
+                          <li><i class="fa fa-check"></i> Rekam Medis (dibutuhkan apabila penggalangan dana kesehatan)</li>
+                          <li><i class="fa fa-check"></i> Nomor Telepon selular aktif</li>
+                          <li><i class="fa fa-check"></i> Foto diri sambil memegang KTP</li>
+                        </ul>
+                  </div>
           </div>
 
-          <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5" data-aos="fade-left">
-            <h3>Untuk memulai menjadi donatur, Silahkan isi data registrasi dibawah ini</h3>
-            <div class="form-group input-group" <label>Username  </label>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                     <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
-                     <input type="text" class="form-control" placeholder="Buat Username Maks. 5 Digit" name="txtusername" required autofocus/>
-                 </div><br>
-             <div class="form-group input-group"<label>Perusahaan / CV  </label>
-             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                     <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-                     <input type="text" class="form-control" placeholder="Masukkan Nama Perusahaan" name="txtnama" required="">
-                 </div><br>
-                 <div class="form-group input-group"<label>Password</label>
-                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                 <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-                     <input type="password" class="form-control" placeholder="Masukkan Password (Maks. 8)" name="txtpassword" required="">
-                 </div><br>
-                 <div class="form-group input-group" <label>Email  </label>
-                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                     <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-                     <input type="text" class="form-control" placeholder="Email Perusahaan" name="txtemail"  required="">
-                 </div><br>
-                 <div class="form-group input-group"<label>Alamat  </label>
-                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                 &nbsp;&nbsp;&nbsp;
-                     <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-                     <textarea class="form-control" name="txtalamat"
-                        oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required/>
-                        </textarea>
-                 </div><br>
-                 <br><br>
-                 <button type="submit" class="btn btn-warning btn-sm" name="btnDaftarPer" title="Masuk Sistem" >Registrasi</button>
-
+          <div class="row content">
+          <div class="col-md-4 order-1 order-md-2" data-aos="fade-left">
+            <img src="assets/img/details-2.png" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-8 pt-5 order-2 order-md-1" data-aos="fade-up">
+          <h3>Syarat & Ketentuan  </h3>
+            <p>Donasi Yayasan Badan Hukum</p>
+            <ul>
+              <li><i class="fa fa-check"></i> Akta Pendirian Organisasi</li>
+              <li><i class="fa fa-check"></i> SK Kemenkumham</li>
+              <li><i class="fa fa-check"></i> NPWP Badan</li>
+              <li><i class="fa fa-check"></i> KTP Penanggung Jawab</li>
+              <li><i class="fa fa-check"></i> Nomor Rekening atas nama badan</li>
+              <li><i class="fa fa-check"></i> Tanda Daftar Yayasan</li>
+              <li><i class="fa fa-check"></i> Surat Keterangan Domisili</li>
+              <li><i class="fa fa-check"></i> Struktur Organisasi</li>
+              <li><i class="fa fa-check"></i> Izin Khusus (Bila Ada)</li>
+              <li><i class="fa fa-check"></i> Foto diri penanggung jawab dengan memegang KTP</li>
+              <li><i class="fa fa-check"></i> Surat Kuasa (apabila penanggung jawab bukan ketua Yayasan)</li>
+            </ul>
           </div>
         </div>
-
       </div>
-    </section><!-- End Features Section -->
+    </section>
 
     <!-- ======= Counts Section ======= -->
     
@@ -251,28 +230,6 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-<?php
- $con = mysqli_connect("localhost","root","","bkk"); 
-//  include "koneksi.php";
- if (isset ($_POST['btnDaftarPer'])){
-		$sql_simpan = "INSERT INTO user (username,nama,password,email,alamat,level,status) VALUES (
-                    '".$_POST['txtusername']."',
-                    '".$_POST['txtnama']."',
-					'".$_POST['txtpassword']."',
-                    '".$_POST['txtemail']."',
-                    '".$_POST['txtalamat']."',
-                    '".'Perusahaan / CV'."',
-                    '".'Nonaktif'."');";
-		$query_simpan = mysqli_query($con,$sql_simpan);
 
-        if ($query_simpan) {
-            echo "<script>alert('Tahap Selanjutnya')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=login.php'>";
-        }else{
-            echo "<script>alert('Proses Gagal')</script>";
-        }
-        //selesai proses simpan
-    }
-?>
 </body>
 </html>
