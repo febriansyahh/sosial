@@ -27,14 +27,18 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Bootslander - v4.3.0
-  * Template URL: https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
+
+<style>
+  [data-component="slideshow"] .slide {
+    display: none;
+    text-align: center;
+  }
+
+  [data-component="slideshow"] .slide.active {
+    display: block;
+  }
+</style>
 
 <body>
 
@@ -55,8 +59,8 @@
           <li><a class="nav-link scrollto" href="#features">Register</a></li>
           <li><a class="nav-link scrollto" href="login.php">Login</a></li>
           <li><a class="nav-link scrollto" href="loginPer.php">Ajukan Donasi</a></li>
-         
-        <i class="bi bi-list mobile-nav-toggle"></i>
+
+          <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
     </div>
@@ -105,131 +109,150 @@
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container-fluid">
-    <div class="container">
-    <div class="span4">
-          <h3>List<strong> Program</strong></h3>
-        </div>
-      <div class="row">
-        <div class="features">
-            <div class="card mb-3">
-              <div class="card-header">
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-    <thead>
-      <tr>
-        <th>No</th>
-        <th>Yayasan</th>
-        <th>Program</th>
-        <th>Alamat</th>
-        <th>Keterangan</th>
-      </tr>
-    </thead>
-    <tbody>
-        
-   
-        <tr>       
-          
-            
-        </tr>
-    
-    </tbody>
-  </table>
+        <div class="container">
+          <div class="span4">
+            <h3>List<strong> Program</strong></h3>
+          </div>
+          <div class="row">
+            <div class="features">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <div class="card-body">
+                    <div id="slideshow-example" data-component="slideshow">
+                      <div role="list">
+                        <?php
+                          include_once("koneksi.php");
+                          $sql_tampil = "SELECT gambar FROM program";
+                          $query_tampil = mysqli_query($con, $sql_tampil);
+                          while ($data = mysqli_fetch_array($query_tampil, MYSQLI_BOTH)) {
+                            $photoDir = 'files/' . $data['gambar'];
+                            ?>
+                              <div class="slide">
+                                <img src="<?php echo $photoDir ?>" width="860" height="450" alt="">
+                              </div>
+                            <?php
+                          }
+                        ?>
+                      </div>
+                    </div>
+                    <br>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
         </div>
-      </div>
+    </section>
     </div>
-  </section>
-        </div>
 
-      </div>
+    </div>
     </section><!-- End About Section -->
 
     <!-- ======= Features Section ======= -->
     <main id="main">
 
-    <!-- ======= About Section ======= -->
-    <section id="features" class="features">
-      <div class="container">
+      <!-- ======= About Section ======= -->
+      <section id="features" class="features">
+        <div class="container">
 
-        <div class="row content">
-              <div class="col-md-4" data-aos="fade-right">
-                <img src="assets/img/details-1.png" class="img-fluid" alt="">
-              </div>
-                  <div class="col-md-8 pt-4" data-aos="fade-up">
-                        <h3>Syarat & Ketentuan  </h3>
-                        <p>Donasi Individu</p>
-                        <ul>
-                          <li><i class="fa fa-check"></i> KTP</li>
-                          <li><i class="fa fa-check"></i> NPWP (Bila ada)</li>
-                          <li><i class="fa fa-check"></i> Nomor Rekening Penerima</li>
-                          <li><i class="fa fa-check"></i> Akte Kelahiran / Kartu Keluarga (apabila penerima manfaat adalah anak)</li>
-                          <li><i class="fa fa-check"></i> Rekam Medis (dibutuhkan apabila penggalangan dana kesehatan)</li>
-                          <li><i class="fa fa-check"></i> Nomor Telepon selular aktif</li>
-                          <li><i class="fa fa-check"></i> Foto diri sambil memegang KTP</li>
-                        </ul>
-                  </div>
+          <div class="row content">
+            <div class="col-md-4" data-aos="fade-right">
+              <img src="assets/img/details-1.png" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-8 pt-4" data-aos="fade-up">
+              <h3>Syarat & Ketentuan </h3>
+              <p>Donasi Individu</p>
+              <ul>
+                <li><i class="fa fa-check"></i> KTP</li>
+                <li><i class="fa fa-check"></i> NPWP (Bila ada)</li>
+                <li><i class="fa fa-check"></i> Nomor Rekening Penerima</li>
+                <li><i class="fa fa-check"></i> Akte Kelahiran / Kartu Keluarga (apabila penerima manfaat adalah anak)</li>
+                <li><i class="fa fa-check"></i> Rekam Medis (dibutuhkan apabila penggalangan dana kesehatan)</li>
+                <li><i class="fa fa-check"></i> Nomor Telepon selular aktif</li>
+                <li><i class="fa fa-check"></i> Foto diri sambil memegang KTP</li>
+              </ul>
+            </div>
           </div>
 
           <div class="row content">
-          <div class="col-md-4 order-1 order-md-2" data-aos="fade-left">
-            <img src="assets/img/details-2.png" class="img-fluid" alt="">
-          </div>
-          <div class="col-md-8 pt-5 order-2 order-md-1" data-aos="fade-up">
-          <h3>Syarat & Ketentuan  </h3>
-            <p>Donasi Yayasan Badan Hukum</p>
-            <ul>
-              <li><i class="fa fa-check"></i> Akta Pendirian Organisasi</li>
-              <li><i class="fa fa-check"></i> SK Kemenkumham</li>
-              <li><i class="fa fa-check"></i> NPWP Badan</li>
-              <li><i class="fa fa-check"></i> KTP Penanggung Jawab</li>
-              <li><i class="fa fa-check"></i> Nomor Rekening atas nama badan</li>
-              <li><i class="fa fa-check"></i> Tanda Daftar Yayasan</li>
-              <li><i class="fa fa-check"></i> Surat Keterangan Domisili</li>
-              <li><i class="fa fa-check"></i> Struktur Organisasi</li>
-              <li><i class="fa fa-check"></i> Izin Khusus (Bila Ada)</li>
-              <li><i class="fa fa-check"></i> Foto diri penanggung jawab dengan memegang KTP</li>
-              <li><i class="fa fa-check"></i> Surat Kuasa (apabila penanggung jawab bukan ketua Yayasan)</li>
-            </ul>
+            <div class="col-md-4 order-1 order-md-2" data-aos="fade-left">
+              <img src="assets/img/details-2.png" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-8 pt-5 order-2 order-md-1" data-aos="fade-up">
+              <h3>Syarat & Ketentuan </h3>
+              <p>Donasi Yayasan Badan Hukum</p>
+              <ul>
+                <li><i class="fa fa-check"></i> Akta Pendirian Organisasi</li>
+                <li><i class="fa fa-check"></i> SK Kemenkumham</li>
+                <li><i class="fa fa-check"></i> NPWP Badan</li>
+                <li><i class="fa fa-check"></i> KTP Penanggung Jawab</li>
+                <li><i class="fa fa-check"></i> Nomor Rekening atas nama badan</li>
+                <li><i class="fa fa-check"></i> Tanda Daftar Yayasan</li>
+                <li><i class="fa fa-check"></i> Surat Keterangan Domisili</li>
+                <li><i class="fa fa-check"></i> Struktur Organisasi</li>
+                <li><i class="fa fa-check"></i> Izin Khusus (Bila Ada)</li>
+                <li><i class="fa fa-check"></i> Foto diri penanggung jawab dengan memegang KTP</li>
+                <li><i class="fa fa-check"></i> Surat Kuasa (apabila penanggung jawab bukan ketua Yayasan)</li>
+              </ul>
+            </div>
           </div>
         </div>
+      </section>
+
+      <!-- ======= Counts Section ======= -->
+
+
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Bootslander</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/ -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
       </div>
-    </section>
+      </footer><!-- End Footer -->
 
-    <!-- ======= Counts Section ======= -->
-    
+      <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+      <div id="preloader"></div>
 
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Bootslander</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
-  </footer><!-- End Footer -->
+      <!-- Vendor JS Files -->
+      <script src="assets/vendor/aos/aos.js"></script>
+      <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+      <script src="assets/vendor/php-email-form/validate.js"></script>
+      <script src="assets/vendor/purecounter/purecounter.js"></script>
+      <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/purecounter/purecounter.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-
+      <!-- Template Main JS File -->
+      <script src="assets/js/main.js"></script>
 </body>
+
+<script type="text/javascript">
+  var slideshows = document.querySelectorAll('[data-component="slideshow"]');
+  slideshows.forEach(initSlideShow);
+
+  function initSlideShow(slideshow) {
+
+    var slides = document.querySelectorAll(`#${slideshow.id} [role="list"] .slide`);
+
+    var index = 0,
+      time = 5000;
+    slides[index].classList.add('active');
+
+    setInterval(() => {
+      slides[index].classList.remove('active');
+
+      index++;
+      if (index === slides.length) index = 0;
+
+      slides[index].classList.add('active');
+
+    }, time);
+  }
+</script>
+
 </html>
