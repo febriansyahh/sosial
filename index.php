@@ -128,7 +128,10 @@
                             $photoDir = 'files/' . $data['gambar'];
                             ?>
                               <div class="slide">
-                                <img src="<?php echo $photoDir ?>" width="860" height="450" alt="">
+                                <img src="<?php echo $photoDir ?>" width="860" height="350" alt="">
+                                <div class="card">
+                                  <h4>Adalah Saya</h4>
+                                </div>
                               </div>
                             <?php
                           }
