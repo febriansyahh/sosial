@@ -113,7 +113,7 @@ session_destroy();
             $_SESSION["ses_idYayasan"]=$data_login["idLembaga"];
             
             echo "<script>alert('Login Berhasil')</script>";
-            echo "<meta http-equiv='refresh' content='0; url=v_admin/index.php'>";
+            echo "<meta http-equiv='refresh' content='0; url=v_admin/index2.php'>";
         }else{
             echo "<script>alert('Login Gagal')</script>";
             echo "<meta http-equiv='refresh' content='0; url=login_fix.php'>";
